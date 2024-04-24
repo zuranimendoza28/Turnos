@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Hospital La Misericordia";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <fieldset>
+                <legend>Selecciona el tipo de documento:</legend>
+
+                <div>
+                    <input type="radio" name="TipoDocumento" value="Cedula de Ciudadanía" checked />
+                    <label for="Cedula de Ciudadanía">Cedula de Ciudadanía</label>
+                </div>
+
+                <div>
+                    <input type="radio"  name="TipoDocumento" value="Visa" />
+                    <label for="Visa">Visa</label>
+                </div>
+
+                <div>
+                    <input type="radio"  name="TipoDocumento" value="Pasaporte" />
+                    <label for="Pasaporte">Pasaporte</label>
+                </div>
+
+                <div>
+                    <input type="radio"  name="TipoDocumento" value="Cedula de Extranjería" />
+                    <label for="Cedula de Extranjería">Cedula de Extranjería</label>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col">
+            <form action="">
+                <fieldset>
+                    <legend>Número de documento:</legend>
+                    <input type="text" name="NumeroDocumento" />
+                </fieldset>
+                <input type="submit" value="SOLICITAR">
+            </form>
+        </div>
+        <p>holi</p>
+
+    </div>
+</div>
