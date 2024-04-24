@@ -35,11 +35,11 @@ public class HomeController : Controller
         
     }
 
-    public IActionResult Login()
+    /* public IActionResult Login()
     {
         return View("Index","Asesores");
         
-    }
+    } */
 
     public IActionResult TurnoAsignado()
     {

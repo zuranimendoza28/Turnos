@@ -19,10 +19,10 @@ CREATE TABLE Turnos (
     FOREIGN KEY (NIT_Asesor) REFERENCES Asesores(NIT)
 );
 
-SELECT * from Asesores;
+SELECT * from Turnos;
 alter Table Turnos RENAME COLUMN Turno to NumeroTurno;
 
-alter Table Turnos ADD COLUMN TipoDocumento varchar(2) AFTER ID;
+alter Table Turnos ADD COLUMN Documento varchar(20) AFTER TipoDocumento;
 
 insert into Asesores(NIT, Nombre, Apellido, Password, Estado, Acceso) values 
 ("77777", "Zurani", "Villada", "1234", "Activo", 1);

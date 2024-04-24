@@ -2,6 +2,7 @@
     ViewData["Title"] = "Hospital La Misericordia";
 }
 
+@model Asesor
 
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
@@ -10,18 +11,19 @@
 
 <div class="container">
     <div class="row">
-
         <div class="col">
-            <form action="">
-                    <label for="Name">USUARIO</label> 
-                    <input type="text"  name="Nit del usuario" />
+            <form asp-action="Login" asp-controller="Asesores" method="post">
 
-                    <label for="Name">CONTRASEÑA</label> 
-                    <input type="text"  name="password" />
+                <label for="Name">NIT</label> 
+                <input type="text"  name="Nit del usuario" asp-for="NIT"/>
+
+                <label for="Name">CONTRASEÑA</label> 
+                <input type="text"  name="password" asp-for="Password"/>
                 
-                <input type="submit" value="INGRESAR">
-            </form>
-        </div>
+                <button class="btn btn-danger" type="submit">Ingresar</button>
 
+            </form>
+            <div class="mt-2" style="color: rgb(185, 22, 22);">@ViewBag.Error</div>
+        </div>
     </div>
 </div>
