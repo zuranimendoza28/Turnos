@@ -4,19 +4,19 @@
 @model Asesor;
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
-    <h3>Bienvenido @Model.Nombre<</h3>
+    <h3>Bienvenido @Model.Nombre</h3>
     <h2>
-        ADMINISTRADOR
+        ASESOR
     </h2>
     <p>ASIGNACIÓN DE TURNOS</p>
 </div>
 
 <div class="container">
     <div class="row">
+        <!-- Vista de los turnos -->
         <div class="col-md-6">
-            <ul>
-                <li>CM-12</li>
-                <li>IG-12</li>
+            <h2 class="text-center">Turnos en pantalla</h2>
+            <ul class="turnos-list text-center">
                 <li>CM-13</li>
                 <li>CM-14</li>
                 <li>AM-6</li>
@@ -24,45 +24,17 @@
                 <li>AM-12</li>
                 <li>CM-7</li>
             </ul>
-
         </div>
+        <!-- Botones de control -->
         <div class="col-md-6">
-            <div class="servicio">
-                <div>
-                    <a class="btn btn-success" href="#">SIGUIENTE EN FILA
-                    </a>
-                </div>
+            <h2 class="text-center">Pasar Turno</h2>
+            <div class="botones-contenedor">
+                <button class="boton-elegante">Siguiente en Fila</button>
+                <button class="boton-elegante">Información General (IG)</button>
+                <button class="boton-elegante">Pago de Facturas (PF)</button>
+                <button class="boton-elegante">Autorización de Medicamentos (AM)</button>
+                <button class="boton-elegante">Solicitud de Cita Médica (CM)</button>
             </div>
-            <div class="servicio">
-                <div>34</div>
-                <div>
-                    <a class="btn btn-success" href="#">INFORMACIÓN GENERAL (IG)
-                    </a>
-                </div>
-            </div>
-            <div class="servicio">
-                <div>12</div>
-                <div>
-                    <a class="btn btn-success" href="#">PAGO DE FACTURAS (PF)
-                    </a>
-                </div>
-            </div>
-            <div class="servicio">
-                <div>12</div>
-                <div>
-                    <a class="btn btn-success" href="#">AUTORIZACIÓN DE MEDICAMENTOS (AM)
-                    </a>
-                </div>
-            </div>
-            <div class="servicio">
-                <div>12</div>
-                <div>
-                    <a class="btn btn-success" href="#"> SOLICITUD DE CITA MÉDICA (CM)
-                    </a>
-                </div>
-            </div>
-           
         </div>
     </div>
-
 </div>

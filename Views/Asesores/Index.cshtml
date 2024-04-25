@@ -6,24 +6,24 @@
 
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
-    <p>ADMINISTRADOR</a></p>
+    <p>Hospital la misericorida</a></p>
+</div>
+<div class="text-center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkkliLswMSEYw47QCmXppTm2vU7KiQMFA8_I6VdQVVA&s"
+        alt="">
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form asp-action="Login" asp-controller="Asesores" method="post">
-
-                <label for="Name">NIT</label> 
-                <input type="text"  asp-for="NIT"/>
-
-                <label for="Name">CONTRASEÑA</label> 
-                <input type="text" asp-for="Password"/>
-                
-                <button class="btn btn-danger" type="submit">Ingresar</button>
-
-            </form>
-            @* <div class="mt-2" style="color: rgb(185, 22, 22);">@ViewBag.Error</div> *@
+<div class="container text-center">
+    <form asp-action="Login" asp-controller="Asesores" method="post" class="form">
+        <p class="form-title">Inicia Sesión</p>
+        <div class="input-container">
+            <input type="text" id="NIT" placeholder="Ingresa el NIT" asp-for="NIT" />
         </div>
-    </div>
+        <div class="input-container">
+            <input type="password" id="Password" placeholder="Ingresa contraseña" asp-for="Password" />
+        </div>
+        <button class="btn btn-primary" type="submit">Ingresar</button>
+    </form>
 </div>
+
+@* <div class="mt-2" style="color: rgb(185, 22, 22);">@ViewBag.Error</div> *@

@@ -1,7 +1,7 @@
 using TurnoAgil.Data;
 
 namespace TurnoAgil.Models{
-    public class Asesor(){
+    public class Asesor{
         public int? Id { get; set; }
         public string? NIT { get; set; }
         public string? Nombre { get; set; }
