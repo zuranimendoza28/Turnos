@@ -7,7 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MisericordiaContext> (Options=>Options.UseMySql(builder.Configuration.GetConnectionString("MisericordiaDB"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
+builder.Services.AddDbContext<MisericordiaContext> (Options =>
+    Options.UseMySql
+    (
+        builder.Configuration.GetConnectionString("MisericordiaDB"),
+        Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")
+    )
+);
+
 //sesion
 builder.Services.AddSession(options => {
     options.IdleTimeout = TimeSpan.FromMinutes(60);

@@ -1,5 +1,5 @@
 CREATE TABLE Asesores (
-    ID INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     NIT VARCHAR(20) UNIQUE NOT NULL,
     Nombre VARCHAR(50) NOT NULL,
     Apellido VARCHAR(50) NOT NULL,
@@ -18,6 +18,10 @@ CREATE TABLE Turnos (
     FechaFinAtencion DateTime NULL,
     FOREIGN KEY (NIT_Asesor) REFERENCES Asesores(NIT)
 );
+
+SHOW TABLES;
+
+DROP TABLE Asesores;
 
 SELECT * from Turnos;
 alter Table Turnos RENAME COLUMN Turno to NumeroTurno;

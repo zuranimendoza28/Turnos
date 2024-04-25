@@ -15,15 +15,15 @@
             <form asp-action="Login" asp-controller="Asesores" method="post">
 
                 <label for="Name">NIT</label> 
-                <input type="text"  name="Nit del usuario" asp-for="NIT"/>
+                <input type="text"  asp-for="NIT"/>
 
                 <label for="Name">CONTRASEÑA</label> 
-                <input type="text"  name="password" asp-for="Password"/>
+                <input type="text" asp-for="Password"/>
                 
                 <button class="btn btn-danger" type="submit">Ingresar</button>
 
             </form>
-            <div class="mt-2" style="color: rgb(185, 22, 22);">@ViewBag.Error</div>
+            @* <div class="mt-2" style="color: rgb(185, 22, 22);">@ViewBag.Error</div> *@
         </div>
     </div>
 </div>

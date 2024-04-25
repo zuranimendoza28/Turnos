@@ -20,24 +20,28 @@ public class AsesoresController : Controller
 
     public IActionResult Administrador()
     {
-        return View("Administrador", "Asesores");
+        Asesor model = new Asesor();
+        model.Nombre = "Josh";
+        // return View("Administrador", "Asesores");
+        return View(model);
     }
-    public IActionResult Login()
-    {
-        return View();
-    }
+    // public IActionResult Login()
+    // {
+    //     return View();
+    // }
     [HttpPost]
-    public IActionResult Login(Asesor model)
+    public  async Task <IActionResult> Login(Asesor model)
     {
-        Console.WriteLine($"Este es el NIT: {model.NIT}");
-        var asesor = _context.Asesores.FirstOrDefault(e => e.NIT == model.NIT && e.Password == model.Password);
+        Console.WriteLine($"Este es el NIT: {model.NIT}, password: {model.Password}");
+        var asesor = await _context.Asesores.FirstOrDefaultAsync(e => e.NIT == model.NIT && e.Password == model.Password);
+        Console.WriteLine($"Este es el asesor {asesor.Nombre}");
         if (asesor != null)
         {
-            HttpContext.Session.SetString("AserorID", asesor.ID.ToString());
+            HttpContext.Session.SetString("AserorID", asesor.Id.ToString());
             HttpContext.Session.SetString("AsesorNombre", asesor.Nombre);
             HttpContext.Session.SetString("AsesorNIT", asesor.NIT);
             _context.SaveChanges();
-            return RedirectToAction("Administradores");
+            return RedirectToAction("Administrador");
         }
         else
         {

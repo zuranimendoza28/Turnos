@@ -2,7 +2,7 @@ using TurnoAgil.Data;
 
 namespace TurnoAgil.Models{
     public class Asesor(){
-        public int? ID { get; set; }
+        public int? Id { get; set; }
         public string? NIT { get; set; }
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
