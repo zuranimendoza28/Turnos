@@ -3,13 +3,11 @@
 }
 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-<div class="container">
-    <div class="row">
+<div class="container align-content-center">
+    <h1 class="d-flex m-auto justify-content-center">Turno Ágil</h1>
+    <h4 class="d-flex m-auto justify-content-center">Hospital la Misericordia</h4>
+    <img src="../wwwroot/img/hospital.png" alt="Hospital la Misericordia" style="width: 200px;">
+    <div class="row mt-5">
         <div class="col">
             <fieldset>
                 <legend>Selecciona el tipo de documento:</legend>
@@ -36,15 +34,13 @@
             </fieldset>
         </div>
         <div class="col">
-            <form action="">
+            <form asp-action=""> @* Que mande a la base de datos *@
                 <fieldset>
                     <legend>Número de documento:</legend>
                     <input type="text" name="NumeroDocumento" />
+                    <button class="btn btn-info" type="submit" asp-controller="Asesores" asp-action="Servicio">Solicitar</button>
                 </fieldset>
-                <input type="submit" value="SOLICITAR">
             </form>
         </div>
-        <p>holi</p>
-
     </div>
 </div>

@@ -25,25 +25,22 @@ public class HomeController : Controller
 
     public IActionResult Servicio()
     {
-        return View("Servicio","Home");
-        //return RedirectToAction("Servicio","Home");
+        return View("Servicio", "Home");
     }
 
-     public IActionResult Pantalla()
+    public IActionResult Pantalla()
     {
-        return View("Index","Pantalla");
-        
+        return View("Index", "Pantalla");
     }
 
-     public IActionResult Login()
+    public IActionResult Login()
     {
-        return View("Index","Asesores");
-        
+        return View("Index", "Asesores");
     }
 
     public IActionResult TurnoAsignado()
     {
-        return View("TurnoAsignado","Home");
+        return View("TurnoAsignado", "Home");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

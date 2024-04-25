@@ -22,15 +22,11 @@ public class AsesoresController : Controller
     {
         Asesor model = new Asesor();
         model.Nombre = "Josh";
-        // return View("Administrador", "Asesores");
         return View(model);
     }
-    // public IActionResult Login()
-    // {
-    //     return View();
-    // }
+    
     [HttpPost]
-    public  async Task <IActionResult> Login(Asesor model)
+    public async Task <IActionResult> Login(Asesor model)
     {
         Console.WriteLine($"Este es el NIT: {model.NIT}, password: {model.Password}");
         var asesor = await _context.Asesores.FirstOrDefaultAsync(e => e.NIT == model.NIT && e.Password == model.Password);
@@ -49,6 +45,7 @@ public class AsesoresController : Controller
             return View("Index");
         }
     }
+    
 }
 
 
