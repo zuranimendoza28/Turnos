@@ -2,6 +2,9 @@
     ViewData["Title"] = "Hospital La Misericordia";
 }
 @model Asesor;
+<div>
+    <a class="btn btn-dark" asp-area="" asp-controller="Asesores" asp-action="Index">Volver</a>
+</div>
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
     <h3>Bienvenido @Model.Nombre</h3>
@@ -13,7 +16,6 @@
 
 <div class="container">
     <div class="row">
-        <!-- Vista de los turnos -->
         <div class="col-md-6">
             <h2 class="text-center">Turnos en pantalla</h2>
             <ul class="turnos-list text-center">
@@ -25,7 +27,6 @@
                 <li>CM-7</li>
             </ul>
         </div>
-        <!-- Botones de control -->
         <div class="col-md-6">
             <h2 class="text-center">Pasar Turno</h2>
             <div class="botones-contenedor">
