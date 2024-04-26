@@ -23,9 +23,17 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult EnviarDatos(Turno datos)
+    {
+        TempData["DatosFormulario"]=datos;
+        return RedirectToAction("Servicio","Home");
+    }
+
     public IActionResult Servicio()
     {
-        return View("Servicio", "Home");
+        var datos=TempData["DatosFormulario"] as Turno;
+        return View("Servicio", new {Turno=datos, Home="Home"});
     }
 
     public IActionResult Pantalla()
