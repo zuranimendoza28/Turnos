@@ -23,27 +23,32 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult EnviarDatos(Turno datos)
+    {
+        TempData["DatosFormulario"]=datos;
+        return RedirectToAction("Servicio","Home");
+    }
+
     public IActionResult Servicio()
     {
-        return View("Servicio","Home");
-        //return RedirectToAction("Servicio","Home");
+        var datos=TempData["DatosFormulario"] as Turno;
+        return View("Servicio", new {Turno=datos, Home="Home"});
     }
 
-     public IActionResult Pantalla()
+    public IActionResult Pantalla()
     {
-        return View("Index","Pantalla");
-        
+        return View("Index", "Pantalla");
     }
 
-     public IActionResult Login()
+    public IActionResult Login()
     {
-        return View("Index","Asesores");
-        
+        return View("Index", "Asesores");
     }
 
     public IActionResult TurnoAsignado()
     {
-        return View("TurnoAsignado","Home");
+        return View("TurnoAsignado", "Home");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

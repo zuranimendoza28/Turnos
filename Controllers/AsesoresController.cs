@@ -21,14 +21,15 @@ public class AsesoresController : Controller
     public IActionResult Administrador()
     {
         Asesor model = new Asesor();
+<<<<<<< HEAD
+=======
+        model.Nombre = "Josh";
+>>>>>>> 3927c56693c2fc61f2d6c6964b3a30941278dc5e
         return View(model);
     }
-    // public IActionResult Login()
-    // {
-    //     return View();
-    // }
+    
     [HttpPost]
-    public  async Task <IActionResult> Login(Asesor model)
+    public async Task <IActionResult> Login(Asesor model)
     {
         var asesor = await _context.Asesores.FirstOrDefaultAsync(e => e.NIT == model.NIT && e.Password == model.Password);
         if (asesor != null)
@@ -47,6 +48,9 @@ public class AsesoresController : Controller
             return View("Index");
         }
     }
+
+    
 }
+
 
 

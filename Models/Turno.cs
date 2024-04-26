@@ -9,6 +9,6 @@ namespace TurnoAgil.Models{
         public DateTime FechaSolicitud { get; set; }
         public DateTime FechaInicioAtencion { get; set; }
         public DateTime FechaFinAtencion { get; set; }
-        
+
     }
 }
