@@ -21,10 +21,6 @@ public class AsesoresController : Controller
     public IActionResult Administrador()
     {
         Asesor model = new Asesor();
-<<<<<<< HEAD
-=======
-        model.Nombre = "Josh";
->>>>>>> 3927c56693c2fc61f2d6c6964b3a30941278dc5e
         return View(model);
     }
     
