@@ -6,6 +6,7 @@ namespace TurnoAgil.Controllers;
 
 public class HomeController : Controller
 {
+    /* declaramos el context con el modelo para hacer uso de este posteriormente */
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
@@ -23,6 +24,7 @@ public class HomeController : Controller
         return View();
     }
 
+    /* Creamos la lógica para poder crear y almacenar cada turno y mandarlo a la base de datos  */
     [HttpPost]
     public IActionResult EnviarDatos(Turno datos)
     {

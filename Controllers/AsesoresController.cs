@@ -8,6 +8,7 @@ namespace TurnoAgil.Controllers;
 
 public class AsesoresController : Controller
 {
+    /* declaramos el context con el modelo para hacer uso de este posteriormente */
     public readonly MisericordiaContext _context;
     public AsesoresController(MisericordiaContext context)
     {

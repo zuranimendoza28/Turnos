@@ -4,19 +4,17 @@
 
 @model Asesor
 
-
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
     <p>Hospital la misericorida</a></p>
 </div>
 <div class="text-center">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkkliLswMSEYw47QCmXppTm2vU7KiQMFA8_I6VdQVVA&s"
-        alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkkliLswMSEYw47QCmXppTm2vU7KiQMFA8_I6VdQVVA&s" alt="hospital la misericordia">
 </div>
 
 <div class="container text-center">
     <form asp-action="Login" asp-controller="Asesores" method="post" class="form">
-        <p class="form-title">Inicia Sesión</p>
+        <p class="form-title">Iniciar Sesión</p>
         <div class="input-container">
             <input type="text" id="NIT" placeholder="Ingresa el NIT" asp-for="NIT" />
         </div>
@@ -26,5 +24,3 @@
         <button class="btn btn-primary" type="submit">Ingresar</button>
     </form>
 </div>
-
-@* <div class="mt-2" style="color: rgb(185, 22, 22);">@ViewBag.Error</div> *@

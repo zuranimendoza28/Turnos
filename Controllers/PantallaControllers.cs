@@ -6,44 +6,22 @@ using TurnoAgil.Data;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace TurnoAgil.Controllers;
-
 public class PantallaController : Controller
 {
+    /* declaramos el context con el modelo para hacer uso de este posteriormente */
     public readonly MisericordiaContext _context;
-
-    public PantallaController(MisericordiaContext context)
-    {
+    public PantallaController(MisericordiaContext context){
         _context = context;
-    }
+    }    
 
-    /*public IActionResult Index()
+    /* Declaramos el método necesario para poder traer de la base de datos los turnos actualmente llamados y los siguientes en cola */
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }*/
-
-    /* public async Task<IActionResult> Index()
-        {
-           //return Json(await _context.Turnos.ToListAsync());
-           return View(await _context.Turnos.ToListAsync());
-           
-        } */
-
-
-
-
-public async Task<IActionResult> Index()
-{
-    var ultimosTurnos = await _context.Turnos
-                                    .OrderByDescending(t => t.FechaSolicitud)
-                                    .Skip(0)
-                                    .Take(6)
-                                    .ToListAsync();
-
-    return View(ultimosTurnos);
-}
-
-
-
-
-
+        var ultimosTurnos = await _context.Turnos
+                                        .OrderByDescending(t => t.FechaSolicitud)
+                                        .Skip(0)
+                                        .Take(6)
+                                        .ToListAsync();
+        return View(ultimosTurnos);
+    }
 }
