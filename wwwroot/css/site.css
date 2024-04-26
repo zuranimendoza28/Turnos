@@ -149,3 +149,14 @@ body {
 }
 
 /*Termina los estilos agregados por Juan */
+
+/*ESTILOS ANDRES*/
+.lista-turnos ul{list-style: none;}
+
+.lista-turnos ul{display: flex; flex-direction: column;}
+.lista-turnos ul li{padding: 10px 0px; font-size:2em;border:1px solid #666; margin:2px 0; text-align: center;}
+.lista-turnos ul li:first-child{background-color: rgb(111, 238, 238);}
+.turno-principal-right{ color:red;}
+.turno-principal-right h2{ color:red;font-size: 6rem;text-align: center;}
+
+/*FIN ESTILOS ANDRES*/

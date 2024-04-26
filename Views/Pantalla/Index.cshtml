@@ -10,47 +10,72 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-md-4">
             <h3>TURNO ÁGIL</h3>
-            <div>
+            <div class="lista-turnos">
                 <ul>
                     <li>
                         CM-12
                     </li>
-                    <li>
-                        IG-24
-                    </li>
-                    <li>
-                        CM-13
-                    </li>
-                    <li>
-                        AM-2
-                    </li>
-                    <li>
-                        IG-25
-                    </li>
-                    <li>
-                        IG-26
-                    </li>
-                    <li>
-                        AM-3
-                    </li>
+                    @foreach (var turno in Model){
+                <li>@turno.Servicio-@turno.NumeroTurno</li>
+            }
                 </ul>
             </div>
+            
         </div>
-        <div class="col">
-            <h2>
-                TURNO ASIGNADO
+        <div class="turno-principal-right clo-md-8 col d-flex align-items-center justify-content-center flex-column">
+
+
+
+            <h2 id="turnoenPantalla">
+                TURNO
+                <div class="turno">CM-12</div>
+                
             </h2>
-            <p class="">
-                CM-12
-            </p>
-            <div>
-                <small>9:00</small>
-            </div>
+
+                <div id="NIT_Uusario">1234567890</div>
             
         </div>
 
 
     </div>
 </div>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        speakText(document.getElementById("turnoenPantalla").innerText);
+        repeatSpeak(document.getElementById("turnoenPantalla").innerText, 2, 3000);
+    }, 3000);
+    
+    setTimeout(function() {
+        speakText(document.querySelector(".turno").innerText);
+    }, 16000);
+    
+    setTimeout(function() {
+        speakText(document.getElementById("NIT_Uusario").innerText);
+    }, 18000);
+});
+
+function speakText(text) {
+    let synth = window.speechSynthesis;
+    let utterance = new SpeechSynthesisUtterance(text);
+    for(let voice of synth.getVoices()){
+        if(voice.name === "Microsoft Helena - Spanish (Spain)"){
+            utterance.voice = voice;
+        }
+    }
+    utterance.rate = 0.86;
+    utterance.lang = "es-ES";
+    synth.speak(utterance);
+}
+
+function repeatSpeak(text, times, delay) {
+    let count = 0;
+    let interval = setInterval(function() {
+        speakText(text);
+        count++;
+        if(count === times) clearInterval(interval);
+    }, delay);
+}
+</script>
