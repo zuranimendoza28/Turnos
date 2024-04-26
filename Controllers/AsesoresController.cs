@@ -21,18 +21,17 @@ public class AsesoresController : Controller
     public IActionResult Administrador()
     {
         Asesor model = new Asesor();
-        model.Nombre = "Josh";
         return View(model);
     }
     
     [HttpPost]
     public async Task <IActionResult> Login(Asesor model)
     {
-        Console.WriteLine($"Este es el NIT: {model.NIT}, password: {model.Password}");
         var asesor = await _context.Asesores.FirstOrDefaultAsync(e => e.NIT == model.NIT && e.Password == model.Password);
-        Console.WriteLine($"Este es el asesor {asesor.Nombre}");
         if (asesor != null)
-        {
+        { if (asesor.NIT == "admin" && asesor.Password == "admin123"){
+            return View("AdminView", "Asesores");
+        }
             HttpContext.Session.SetString("AserorID", asesor.Id.ToString());
             HttpContext.Session.SetString("AsesorNombre", asesor.Nombre);
             HttpContext.Session.SetString("AsesorNIT", asesor.NIT);
