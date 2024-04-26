@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using TurnoAgil.Data;
 using TurnoAgil.Models;
 
 namespace TurnoAgil.Controllers;
@@ -8,18 +9,15 @@ public class HomeController : Controller
 {
     /* declaramos el context con el modelo para hacer uso de este posteriormente */
     private readonly ILogger<HomeController> _logger;
+    private readonly MisericordiaContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, MisericordiaContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
     {
         return View();
     }
