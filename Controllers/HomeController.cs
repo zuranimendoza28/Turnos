@@ -22,30 +22,31 @@ public class HomeController : Controller
         return View();
     }
 
-    /* Creamos la lógica para poder crear y almacenar cada turno y mandarlo a la base de datos  */
+    
     [HttpPost]
     public IActionResult EnviarDatos(Turno datos)
     {
         TempData["DatosFormulario"]=datos;
         return RedirectToAction("Servicio","Home");
-    }
+    } 
 
     public IActionResult Servicio()
     {
         var datos=TempData["DatosFormulario"] as Turno;
         return View("Servicio", new {Turno=datos, Home="Home"});
-    }
+    }   
 
     public IActionResult Pantalla()
     {
         return View("Index", "Pantalla");
     }
 
-    public IActionResult Login()
+    /* public IActionResult Login()
     {
         return View("Index", "Asesores");
-    }
+    } */
 
+    /* Ticket que se le muestra al usuario para que vea el turno y el la hora en la cual se hizo la solicitud del turno */
     public IActionResult TurnoAsignado()
     {
         return View("TurnoAsignado", "Home");
