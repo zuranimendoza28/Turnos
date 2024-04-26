@@ -1,11 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using TurnoAgil.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie(option => {
+    option.LoginPath = "/Login/Index";
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    option.AccessDeniedPath = "/Login/Index";
+});
 
 builder.Services.AddDbContext<MisericordiaContext> (Options =>
     Options.UseMySql
@@ -36,6 +45,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

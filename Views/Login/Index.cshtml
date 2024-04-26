@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Hospital La Misericordia";
+}
+
+@model Asesor
+
+
+<div class="text-center">
+    <h1 class="display-4">TURNO ÁGIL</h1>
+    <p>Hospital la misericorida</a></p>
+</div>
+<div class="text-center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkkliLswMSEYw47QCmXppTm2vU7KiQMFA8_I6VdQVVA&s"
+        alt="">
+</div>
+
+<div class="container text-center">
+    <form asp-action="Login" asp-controller="Login" method="post" class="form">
+        <p class="form-title">Inicia Sesión</p>
+        <div class="input-container">
+            <input type="text" id="NIT" placeholder="Ingresa el NIT" asp-for="NIT" />
+        </div>
+        <div class="input-container">
+            <input type="password" id="Password" placeholder="Ingresa contraseña" asp-for="Password" />
+        </div>
+        <button class="btn btn-primary" type="submit">Ingresar</button>
+    </form>
+</div>
+
+@if (!string.IsNullOrEmpty(TempData["Message"]?.ToString()))
+{
+    <div class="mt-2 text-center" style="color: rgb(185, 22, 22);">@TempData["Message"]</div>
+}
