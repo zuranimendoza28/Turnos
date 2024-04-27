@@ -3,9 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TurnoAgil.Models;
 using TurnoAgil.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TurnoAgil.Controllers;
-
+[Authorize]
 public class AsesoresController : Controller
 {
     /* declaramos el context con el modelo para hacer uso de este posteriormente */
@@ -33,9 +37,6 @@ public class AsesoresController : Controller
         { if (asesor.NIT == "admin" && asesor.Password == "admin123"){
             return View("AdminView", "Asesores");
         }
-            HttpContext.Session.SetString("AserorID", asesor.Id.ToString());
-            HttpContext.Session.SetString("AsesorNombre", asesor.Nombre);
-            HttpContext.Session.SetString("AsesorNIT", asesor.NIT);
             _context.SaveChanges();
             return RedirectToAction("Administrador");
         }
@@ -44,9 +45,8 @@ public class AsesoresController : Controller
             ViewBag.Error = "¡Correo o contraseña incorrectos!";
             return View("Index");
         }
+        
     }
-
-    
 }
 
 
