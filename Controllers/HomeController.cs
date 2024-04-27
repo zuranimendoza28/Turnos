@@ -21,9 +21,8 @@ public class HomeController : Controller
     {
         return View();
     }
-
     
-    [HttpPost]
+    /* [HttpPost]
     public IActionResult EnviarDatos(Turno datos)
     {
         TempData["DatosFormulario"]=datos;
@@ -34,17 +33,45 @@ public class HomeController : Controller
     {
         var datos=TempData["DatosFormulario"] as Turno;
         return View("Servicio", new {Turno=datos, Home="Home"});
-    }   
+    }   */ 
+
+    public IActionResult GuardarPrimerosDatos(string TipoDocumento,string Documento){
+        if(Documento!=null){
+            HttpContext.Session.SetString("documentoSession", Documento);
+            HttpContext.Session.SetString("tipoDocumentoSession", TipoDocumento);
+            return RedirectToAction("Servicio");
+        }else{
+            return RedirectToAction("Index");
+        }
+    }
+
+    public IActionResult Guardar(string turno){
+        int contador = Request.Cookies.ContainsKey("Contador")? int.Parse(Request.Cookies["Contador"]): 0; /* verifica si existe contador */
+        contador++;
+
+        string ticket=$"{turno}-{(contador<10 ? "00" + contador:"0"+contador)}";/* Ticket para la persona y se muestra en pantalla numero del ticket actual*/
+
+        Response.Cookies.Append("Contador", contador.ToString()); /* se agrega el contador a la cookie */
+
+        HttpContext.Session.SetString("servicioSession", turno);
+
+        var hora=
+        
+        HttpContext.Session.SetString("FechaSolicitud", );
+
+        ViewBag.ticket=ticket;
+
+        return View("TurnoAsignado");   
+    }
+
+    public IActionResult Servicio(){
+        return View();
+    }
 
     public IActionResult Pantalla()
     {
         return View("Index", "Pantalla");
     }
-
-    /* public IActionResult Login()
-    {
-        return View("Index", "Asesores");
-    } */
 
     /* Ticket que se le muestra al usuario para que vea el turno y el la hora en la cual se hizo la solicitud del turno */
     public IActionResult TurnoAsignado()

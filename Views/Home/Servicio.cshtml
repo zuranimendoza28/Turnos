@@ -2,42 +2,30 @@
     ViewData["Title"] = "Hospital La Misericordia";
 }
 
-
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <a class="btn btn-success" href="#">
-                INFORMACIÓN GENERAL (IG)
-            </a>
+            <a class="btn btn-success" asp-action="Guardar" asp-route-turno="IG" asp-route-id="1">INFORMACIÓN GENERAL (IG)</a>
         </div>
         <div class="col">
-            <a class="btn btn-success" href="#">
-                PAGO DE FACTURAS (PF)
-            </a>
+            <a class="btn btn-success" asp-action="Guardar" asp-route-turno="PF">PAGO DE FACTURAS (PF)</a>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <a class="btn btn-success" href="#">
-                AUTORIZACIÓN DE MEDICAMENTOS (AM)
-            </a>
+            <a class="btn btn-success" asp-action="Guardar" asp-route-turno="AM">AUTORIZACIÓN DE MEDICAMENTOS (AM)</a>
         </div>
         <div class="col">
-            <a class="btn btn-success" href="#">
-                SOLICITUD DE CITA MÉDICA (CM)
-            </a>
+            <a class="btn btn-success" asp-action="Guardar" asp-route-turno="CM">SOLICITUD DE CITA MÉDICA (CM)</a>
         </div>
     </div>
     <div class="row">
         <div class="col TEXT-CENTER">
-            <a class="btn btn-success" href="#">
-                VOLVER
-            </a>
+            <a class="btn btn-success" href="#">VOLVER</a>
         </div>
     </div>
 </div>

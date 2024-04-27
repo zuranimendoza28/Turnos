@@ -9,42 +9,23 @@
 <div class="container align-content-center">
     <h1 class="d-flex m-auto justify-content-center">Turno Ágil</h1>
     <h4 class="d-flex m-auto justify-content-center">Hospital la Misericordia</h4>
-    <img class="d-flex m-auto justify-content-center " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkkliLswMSEYw47QCmXppTm2vU7KiQMFA8_I6VdQVVA&s" alt="Hospital la Misericordia">
-    <form asp-controller="Home" asp-action="EnviarDatos" method="post">
+    <img class="d-flex m-auto justify-content-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkkliLswMSEYw47QCmXppTm2vU7KiQMFA8_I6VdQVVA&s" alt="Hospital la Misericordia">
+
+    <form asp-action="GuardarPrimerosDatos">
         <div class="row mt-5">
             <div class="col">
-                <fieldset>
-                    <legend>Selecciona el tipo de documento:</legend>
-
-                    <div>
-                        <input asp-for="TipoDocumento" type="radio" name="TipoDocumento" value="Cedula de Ciudadanía" checked />
-                        <label>Cedula de Ciudadanía</label>
-                    </div>
-
-                    <div>
-                        <input asp-for="TipoDocumento" type="radio"  name="TipoDocumento" value="Visa" />
-                        <label>Visa</label>
-                    </div>
-
-                    <div>
-                        <input  asp-for="TipoDocumento" type="radio"  name="TipoDocumento" value="Pasaporte" />
-                        <label>Pasaporte</label>
-                    </div>
-
-                    <div>
-                        <input asp-for="TipoDocumento" type="radio"  name="TipoDocumento" value="Cedula de Extranjería" />
-                        <label>Cedula de Extranjería</label>
-                    </div>
-
-                </fieldset>
+                <select name="TipoDocumento">
+                    <option disabled selected>Ingresa tu tipo de Documento</option>
+                    <option value="Cedula de Ciudadanía">Cedula de Ciudadanía</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="Cedula de Extranjería">Cedula de Extranjería</option>
+                </select>
             </div>
-            
             <div class="col">
-                <fieldset>
-                    <legend>Número de documento:</legend>
-                    <input asp-for="Documento" type="text" name="NumeroDocumento" />
-                    <a class="btn btn-dark" asp-area="" asp-controller="Home" asp-action="Servicio">Solicitar</a>
-                </fieldset>
+                <label>Número de Documento</label>
+                <input type="text" name="Documento" />
+                <button class="btn btn-info">Continuar</button>
             </div>
         </div>
     </form>

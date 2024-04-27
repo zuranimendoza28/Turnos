@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MisericordiaContext> (Options =>
+builder.Services.AddDbContext<MisericordiaContext>(Options =>
     Options.UseMySql
     (
         builder.Configuration.GetConnectionString("MisericordiaDB"),
@@ -15,9 +15,9 @@ builder.Services.AddDbContext<MisericordiaContext> (Options =>
     )
 );
 
-//sesion
-builder.Services.AddSession(options => {
-    options.IdleTimeout = TimeSpan.FromMinutes(60);
+//sesion con cookies
+builder.Services.AddSession(options =>
+{
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -48,4 +48,5 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+
 app.Run();
