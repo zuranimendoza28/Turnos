@@ -13,7 +13,7 @@ CREATE TABLE Asesores (
 /* Creamos la tabla de Turnos */
 CREATE TABLE Turnos (
     ID INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    NIT_Asesor VARCHAR(20)  NOT NULL,
+    NIT_Asesor VARCHAR(20)  NULL,
     Servicio Varchar(2) NOT NULL, /*IG AM PF CM*/
     NumeroTurno INTEGER NOT NULL,
     TipoDocumento VARCHAR(40) NOT NULL,

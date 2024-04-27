@@ -50,16 +50,28 @@ public class HomeController : Controller
         contador++;
 
         string ticket=$"{turno}-{(contador<10 ? "00" + contador:"0"+contador)}";/* Ticket para la persona y se muestra en pantalla numero del ticket actual*/
-
+    
         Response.Cookies.Append("Contador", contador.ToString()); /* se agrega el contador a la cookie */
 
         HttpContext.Session.SetString("servicioSession", turno);
 
-        var hora=
-        
-        HttpContext.Session.SetString("FechaSolicitud", );
+        ViewBag.ticket = ticket;
 
-        ViewBag.ticket=ticket;
+        var ArrayTicket = ticket.Split("-");
+        var numeroticket = int.Parse(ArrayTicket[1]);
+
+        var turnito=new Turno(){
+            Servicio = turno,
+            NumeroTurno = numeroticket,
+            TipoDocumento = HttpContext.Session.GetString("tipoDocumentoSession"),
+            Documento = HttpContext.Session.GetString("documentoSession"),
+            FechaSolicitud = DateTime.Now,
+            FechaInicioAtencion = null,
+            FechaFinAtencion = null
+        };
+
+        _context.Turnos.Add(turnito);
+        _context.SaveChanges();
 
         return View("TurnoAsignado");   
     }
