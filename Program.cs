@@ -10,13 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-.AddCookie(option => {
-    option.LoginPath = "/Login/Index";
-    option.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-    option.AccessDeniedPath = "/Login/Index";
-});
-
 builder.Services.AddDbContext<MisericordiaContext>(Options =>
     Options.UseMySql
     (

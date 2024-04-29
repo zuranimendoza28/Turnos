@@ -1,13 +1,13 @@
 @{
     ViewData["Title"] = "Hospital La Misericordia";
 }
-@model Asesor;
+
 <div>
     <a class="btn btn-dark"  asp-controller="Login" asp-action="Logout">Salir</a>
 </div>
 <div class="text-center">
     <h1 class="display-4">TURNO ÁGIL</h1>
-    <h3>Bienvenido @Model.Nombre</h3>
+    <h3>Bienvenido </h3>
     <h2>
         ASESOR
     </h2>
@@ -19,12 +19,26 @@
         <div class="col-md-6">
             <h2 class="text-center">Turnos en pantalla</h2>
             <ul class="turnos-list text-center">
-                <li>CM-13</li>
-                <li>CM-14</li>
-                <li>AM-6</li>
-                <li>CM-15</li>
-                <li>AM-12</li>
-                <li>CM-7</li>
+                <table class="table table-dark">
+                    <tr>
+                        <td>Servico</td>
+                        <td>Turno</td>
+                        <td>Tipo Documento</td>
+                        <td>Documento</td>
+                        <td>Acciones</td>
+                    </tr>
+                    @foreach(var turno in Model){
+                        <tr>
+                            <td>@turno.Servicio</td>
+                            <td>@turno.NumeroTurno</td>
+                            <td>@turno.TipoDocumento</td>
+                            <td>@turno.Documento</td>
+                            <td>
+                                <a asp-controller="Asesores" asp-action="DeleteUser" asp-route-id="@turno.ID" class="btn btn-danger">Finalizar</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
             </ul>
         </div>
         <div class="col-md-6">

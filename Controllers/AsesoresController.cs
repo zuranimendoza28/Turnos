@@ -23,12 +23,24 @@ public class AsesoresController : Controller
         return View();
     }
 
-    public IActionResult Administrador()
+    public async Task<IActionResult> Administrador()
     {
-        Asesor model = new Asesor();
-        return View(model);
+        var vista=await _context.Turnos.OrderByDescending(t => t.FechaSolicitud)
+                                        .Skip(0)
+                                        .Take(5)
+                                        .ToListAsync();
+        return View(vista);
     }
     
+    [HttpPost]
+    public async Task<IActionResult> DeleteUser(int id)
+    {
+        var user = await _context.Turnos.FindAsync(id);
+        _context.Turnos.Remove(user);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Administrador");
+    }
+
     [HttpPost]
     public async Task <IActionResult> Login(Asesor model)
     {
