@@ -37,7 +37,7 @@ public class AsesoresController : Controller
         { if (asesor.NIT == "admin" && asesor.Password == "admin123"){
             return View("AdminView", "Asesores");
         }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return RedirectToAction("Administrador");
         }
         else
@@ -45,8 +45,21 @@ public class AsesoresController : Controller
             ViewBag.Error = "¡Correo o contraseña incorrectos!";
             return View("Index");
         }
+
         
     }
+        public async Task <IActionResult> Atender(int id)
+        {
+            var turnos = await _context.Turnos.FindAsync(id);
+            var asesorId = HttpContext.Session.GetString("UserId");
+
+            turnos.FechaInicioAtencion = DateTime.Now;
+            turnos.NIT_Asesor = asesorId;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Administradores");
+
+
+        }
 }
 
 

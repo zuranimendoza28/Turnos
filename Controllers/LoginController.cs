@@ -25,6 +25,7 @@ namespace TurnoAgil.Controllers{
             if (asesor != null){
                 if (asesor.NIT == "admin" && asesor.Password == "admin123")
                 {
+                    HttpContext.Session.SetInt32("userId", asesor.Id);
                     return View("AdminView", "Asesores");
                 }
 
